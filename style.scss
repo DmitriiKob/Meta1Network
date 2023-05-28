@@ -139,7 +139,7 @@ button {
   content: '';
   background-image: url(./img/gray-cement-surface-background1.png);
   // background: linear-gradient(180deg, rgba(28, 26, 57, 0.5) 0%, rgba(28, 26, 57, 0) 46.67%);
-  opacity: 0.4;
+  opacity: 0.3;
   transform: rotate(-180deg);
 }
 .sec_first::after{
@@ -152,4 +152,24 @@ button {
   // background-image: url(./img/gray-cement-surface-background1.png);
   background: linear-gradient(180deg, rgba(28, 26, 57, 0.5) 0%, rgba(28, 26, 57, 0) 46.67%);
   transform: rotate(-180deg);
+}
+
+.hero_mob1{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 33vh;
+  margin-top: 101px;
+  margin-inline: 20px;
+}
+.sec_first>header{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.metaLogo{
+  height: 36px;
+}
+.burger{
+  height: 14px;
 }
