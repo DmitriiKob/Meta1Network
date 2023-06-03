@@ -14,18 +14,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
-$a-font-weight: 500;
-$a-color: #646cff;
-$a-text-decoration: inherit;
-
 a {
-  font-weight: $a-font-weight;
-  color: $a-color;
-  text-decoration: $a-text-decoration;
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
 
-  &:hover {
-    color: #535bf2;
-  }
+a:hover {
+  color: #535bf2;
 }
 
 body {
@@ -34,6 +30,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 h1 {
@@ -41,13 +38,10 @@ h1 {
   line-height: 1.1;
 }
 
-$app-max-width: 1280px;
-$app-padding: 2rem;
-
 #app {
-  max-width: $app-max-width;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: $app-padding;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -56,14 +50,14 @@ $app-padding: 2rem;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+}
 
-  &:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
 
-  &.vanilla:hover {
-    filter: drop-shadow(0 0 2em #f7df1eaa);
-  }
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
 }
 
 .card {
@@ -74,33 +68,25 @@ $app-padding: 2rem;
   color: #888;
 }
 
-$button-border-radius: 8px;
-$button-padding: 0.6em 1.2em;
-$button-font-size: 1em;
-$button-font-weight: 500;
-$button-background-color: #1a1a1a;
-$button-border-color-hover: #646cff;
-$button-outline-focus: 4px auto -webkit-focus-ring-color;
-
 button {
-  border-radius: $button-border-radius;
+  border-radius: 8px;
   border: 1px solid transparent;
-  padding: $button-padding;
-  font-size: $button-font-size;
-  font-weight: $button-font-weight;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
   font-family: inherit;
-  background-color: $button-background-color;
+  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+}
 
-  &:hover {
-    border-color: $button-border-color-hover;
-  }
+button:hover {
+  border-color: #646cff;
+}
 
-  &:focus,
-  &:focus-visible {
-    outline: $button-outline-focus;
-  }
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -119,18 +105,23 @@ button {
 }
 
 .page {
-  background-color:#1C1A39;
-}
-.sec_first{
+  background-color: #1C1A39;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
-  background-image: url(./img/HeroMobile.png);
   height: 100vh;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position:bottom center;
+  background-position: bottom center;
 }
-.sec_first::before{
+
+.sec_first {
+  background-image: url(./img/HeroMobile.png);
+}
+
+.sec_first::before, .sec_second::before, .sec_third::before{
   position: absolute;
   top: 0;
   left: 0;
@@ -138,38 +129,150 @@ button {
   width: 100%;
   content: '';
   background-image: url(./img/gray-cement-surface-background1.png);
-  // background: linear-gradient(180deg, rgba(28, 26, 57, 0.5) 0%, rgba(28, 26, 57, 0) 46.67%);
   opacity: 0.3;
   transform: rotate(-180deg);
 }
-.sec_first::after{
+
+.sec_first::after, .sec_second::after, .sec_third::after {
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100%;
   content: '';
-  // background-image: url(./img/gray-cement-surface-background1.png);
+  background-image: url(./img/gray-cement-surface-background1.png);
   background: linear-gradient(180deg, rgba(28, 26, 57, 0.5) 0%, rgba(28, 26, 57, 0) 46.67%);
   transform: rotate(-180deg);
 }
 
-.hero_mob1{
+.hero_mob1 {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   height: 33vh;
   margin-top: 101px;
   margin-inline: 20px;
 }
-.sec_first>header{
+
+header {
   display: flex;
+  position: fixed;
+  width: calc(100% - 40px);
+  align-items: center;
   justify-content: space-between;
   padding: 20px;
+  z-index: 9;
 }
-.metaLogo{
+
+.metaLogo {
   height: 36px;
 }
-.burger{
+
+.burger {
   height: 14px;
+}
+
+.hero_mob1>button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 1406.16px rgba(255, 255, 255, 0.1), 0px 0px 803.52px rgba(255, 255, 255, 0.1), 0px 0px 468.72px rgba(255, 255, 255, 0.1), 0px 0px 234.36px rgba(255, 255, 255, 0.1), 0px 0px 66.96px rgba(255, 255, 255, 0.1), 0px 0px 33.48px rgba(255, 255, 255, 0.1), inset 0px -5px 15px rgba(223, 180, 123, 0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.hero_mob1>p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.hero_mob1>h1 {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: -0.01em;
+  background: linear-gradient(88.51deg, #F3CBFF 0.34%, #FFFFFF 51.21%, #FFE0D8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scrollDown {
+  padding: 0px;
+  gap: 10px;
+  margin: 0;
+  height: 250px;
+  z-index: 5;
+}
+
+.sec_second {
+  background-image: url(./img/BackgroundSec2.png);
+}
+
+
+
+
+
+.box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.01);
+  border: 0.928947px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0px 0px 1334.34px rgba(255, 255, 255, 0.1), 
+              inset 0px 0px 762.48px rgba(255, 255, 255, 0.1), 
+              inset 0px 0px 444.78px rgba(255, 255, 255, 0.1), 
+              inset 0px 0px 222.39px rgba(255, 255, 255, 0.1), 
+              inset 0px 0px 63.54px rgba(255, 255, 255, 0.1), 
+              inset 0px 0px 31.77px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4.64474px);
+  margin: 12px 0;
+  padding: 25px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.box::before{
+  content: '';
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+}
+.box::after{
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+}
+
+.sec_third{
+  background-image: url(./img/SadpeopleMobile.png);
+}
+
+.sec_third>h2{
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  margin-inline: 6vw;
+}
+.sec_third>h2>span{
+  background: linear-gradient(88.51deg, rgba(243, 203, 255, 0.5) 0.34%, rgba(255, 255, 255, 0.5) 51.21%, rgba(255, 224, 216, 0.5) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sec_fourth{
+  background-image: url(./img/Happypeoplemobile.png);
 }
